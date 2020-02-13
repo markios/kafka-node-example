@@ -1,0 +1,7 @@
+{
+  "topic": {
+    "topic": "test",
+    "partition": 0
+  },
+  "kafkaHost": "0.0.0.0:9092"
+}

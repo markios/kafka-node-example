@@ -1,0 +1,38 @@
+{
+  "name": "kafka-node-example",
+  "version": "1.0.0",
+  "description": "Kafka node js example",
+  "main": "index.js",
+  "scripts": {
+    "consumer:start": "node src/Consumer.js",
+    "producer:start": "node src/Producer.js",
+    "kafka:start": "./scripts/start_kafka.sh",
+    "kafka:stop": "./scripts/stop_kafka.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markios/kafka-node-example.git"
+  },
+  "keywords": [
+    "kafka",
+    "node"
+  ],
+  "author": "Mark Kellett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markios/kafka-node-example/issues"
+  },
+  "homepage": "https://github.com/markios/kafka-node-example#readme",
+  "dependencies": {
+    "kafka-node": "^5.0.0",
+    "kafkajs": "^1.12.0"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
