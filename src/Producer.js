@@ -2,6 +2,9 @@ const { Producer } = require("kafka-node");
 const kafkaClient = require("./Client");
 const { topic } = require("./config.json");
 
+const kill = (code = 0) => process.exit(code);
+const ERROR = 1;
+
 class KafkaProducer {
   constructor(client) {
     this.producer = new Producer(client);
@@ -18,7 +21,7 @@ class KafkaProducer {
     const message = process.argv[2];
     if (message === undefined) {
       console.error("ERROR: Missing message string");
-      process.exit(1);
+      kill(ERROR);
     }
     this.state = {
       payloads: [{ ...topic, messages: [message] }]
@@ -33,10 +36,10 @@ class KafkaProducer {
       this.producer.send(payloads, err => {
         if (err) {
           console.log(`PRODUCER ERROR: ${err}`);
-          process.exit(1);
+          kill(ERROR);
         } else {
           console.log("PRODUCER message sent message");
-          process.exit(0);
+          kill();
         }
       });
     });
